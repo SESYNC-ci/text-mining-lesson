@@ -102,7 +102,7 @@ email_topics <- as.data.frame(
 
 ===
 
-The challeng with LDA, as with any machine learning result, is interpretting the
+The challenge with LDA, as with any machine learning result, is interpretting the
 result. Are the "topics" recognizable by the words used?
 
 
@@ -112,20 +112,7 @@ library(ggwordcloud)
 
 topics <- tidy(fit) %>%
   filter(beta > 0.004)
-~~~
-{:title="{{ site.data.lesson.handouts[0] }}" .text-document}
 
-
-~~~
-Warning: `tbl_df()` is deprecated as of dplyr 1.0.0.
-Please use `tibble::as_tibble()` instead.
-This warning is displayed once every 8 hours.
-Call `lifecycle::last_warnings()` to see where this warning was generated.
-~~~
-{:.output}
-
-
-~~~r
 ggplot(topics,
   aes(size = beta, label = term)) +
   geom_text_wordcloud_area(rm_outside = TRUE) +

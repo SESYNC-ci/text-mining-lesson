@@ -44,7 +44,7 @@ The frequency of some words isn't very informative.  You can filter by term or b
 words_trim <- filter(words, total < 250)
          
 ggplot(words_trim, aes(x = total)) +
-       geom_histogram(binwidth = 1)
+       geom_histogram(binwidth = 1)  
 ```
 
 ### Solution 3
@@ -54,11 +54,11 @@ word_assoc <- findAssocs(dtm_trimmed, 'pipelin', 0.6)
 
 word_assoc <- data.frame(word = names(word_assoc[[1]]),
                          assoc = word_assoc,
-                         row.names = NULL)
+                         row.names = NULL)  
 ```
 
 ```{r, title = "Solution"}
 ggplot(word_assoc, aes(label = word, size = pipelin)) +
        geom_text_wordcloud_area()
-```
+```  
 

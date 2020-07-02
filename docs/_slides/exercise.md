@@ -67,7 +67,7 @@ The frequency of some words isn't very informative.  You can filter by term or b
 words_trim <- filter(words, total < 250)
          
 ggplot(words_trim, aes(x = total)) +
-       geom_histogram(binwidth = 1)
+       geom_histogram(binwidth = 1)  
 ~~~
 {:title="Solution" .text-document}
 ![ ]({% include asset.html path="images/exercise/unnamed-chunk-4-1.png" %})
@@ -82,7 +82,7 @@ word_assoc <- findAssocs(dtm_trimmed, 'pipelin', 0.6)
 
 word_assoc <- data.frame(word = names(word_assoc[[1]]),
                          assoc = word_assoc,
-                         row.names = NULL)
+                         row.names = NULL)  
 ~~~
 {:title="Solution" .text-document}
 
