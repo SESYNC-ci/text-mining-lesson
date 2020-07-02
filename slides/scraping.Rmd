@@ -57,7 +57,7 @@ meta(email)
 ===
 
 ```{r}
-content(email)
+content(email)  
 ```
 
 ===

@@ -23,9 +23,11 @@ a document that has particular features defined as a "pattern".
 | \\$[0-9,]+   | The ransom of <span style="color:red;">$1,000,000</span> to Dr. Evil.                |
 | \b\S+@\S+\b  | E-mail <span style="color:red;">info@sesync.org</span> or tweet @SESYNC for details! |
 
+Specifying these patterns correctly can be tricky.  This is a useful site for testing out regex patterns [here](https://regex101.com/).  
+
 ===
 
-Note that "\" must be escaped in R, so the third pattern does not look very
+Note that "\\" must be escaped in R, so the third pattern does not look very
 nice in a R string.
 
 
@@ -73,7 +75,7 @@ email <- enron[[1]]
 
 ~~~
   author       : character(0)
-  datetimestamp: 2019-07-26 10:47:47
+  datetimestamp: 2020-07-02 14:55:04
   description  : character(0)
   heading      : character(0)
   id           : 10001529.1075861306591.txt
@@ -88,7 +90,7 @@ email <- enron[[1]]
 
 
 ~~~r
-> content(email)
+> content(email)  
 ~~~
 {:title="Console" .input}
 
@@ -191,7 +193,7 @@ enron <- tm_map(enron, function(email) {
 
 ~~~
   author       : dutch.quigley@enron.com
-  datetimestamp: 2019-07-26 10:47:47
+  datetimestamp: 2020-07-02 14:55:04
   description  : character(0)
   heading      : character(0)
   id           : 10001529.1075861306591.txt
