@@ -22,7 +22,7 @@ What terms are associated with the word pipeline ("pipelin" after trimming)?  Ho
 ```{r, include=FALSE}
 library(stringr)
 library(tm)
-library(ggplot2)
+library(ggplot2)  
 ```
 
 ### Solution 1

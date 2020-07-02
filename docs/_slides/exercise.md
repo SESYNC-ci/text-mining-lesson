@@ -63,7 +63,37 @@ The frequency of some words isn't very informative.  You can filter by term or b
 
 
 
+~~~r
+words_trim <- filter(words, total < 250)
+         
+ggplot(words_trim, aes(x = total)) +
+       geom_histogram(binwidth = 1)
+~~~
+{:title="Solution" .text-document}
+![ ]({% include asset.html path="images/exercise/unnamed-chunk-4-1.png" %})
+{:.captioned}
+
+### Solution 3
 
 
 
+~~~r
+word_assoc <- findAssocs(dtm_trimmed, 'pipelin', 0.6)
+
+word_assoc <- data.frame(word = names(word_assoc[[1]]),
+                         assoc = word_assoc,
+                         row.names = NULL)
+~~~
+{:title="Solution" .text-document}
+
+
+
+
+~~~r
+ggplot(word_assoc, aes(label = word, size = pipelin)) +
+       geom_text_wordcloud_area()
+~~~
+{:title="Solution" .text-document}
+![ ]({% include asset.html path="images/exercise/unnamed-chunk-6-1.png" %})
+{:.captioned}
 
