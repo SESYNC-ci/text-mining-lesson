@@ -1,0 +1,58 @@
+---
+---
+
+## Exercises
+
+### Exercise 1
+
+Now that you've learned a bit about extracting strings, try using regex to extract 
+money values from the e-mail body content. 
+
+### Exercise 2
+
+We plotted the number of characters in each word above.  Word frequency in a document-term matrix might also be interesting. Try plotting a histogram of the number of times a word appears. 
+
+### Exercise 3
+
+What terms are associated with the word pipeline ("pipelin" after trimming)?  How might you visualize this? 
+
+
+## Solutions
+
+### Solution 1
+
+```{r, title = "Solution"}
+str_extract_all(content(email), '\\$\\S+\\b')
+```
+
+### Solution 2
+
+```{r, title = "Solution"}
+ggplot(words, aes(x = total)) +
+       geom_histogram(binwidth = 1)
+```
+
+The frequency of some words isn't very informative.  You can filter by term or by total number of occurrences. 
+
+```{r, title = "Solution"}
+words_trim <- filter(words, total < 250)
+         
+ggplot(words_trim, aes(x = total)) +
+       geom_histogram(binwidth = 1)
+```
+
+### Solution 3
+
+```{r, title = "Solution"}
+word_assoc <- findAssocs(dtm_trimmed, 'pipelin', 0.6)
+
+word_assoc <- data.frame(word = names(word_assoc[[1]]),
+                         assoc = word_assoc,
+                         row.names = NULL)
+```
+
+```{r, title = "Solution"}
+ggplot(word_assoc, aes(label = word, size = pipelin)) +
+       geom_text_wordcloud_area()
+```
+
