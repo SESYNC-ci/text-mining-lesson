@@ -19,46 +19,51 @@ What terms are associated with the word pipeline ("pipelin" after trimming)?  Ho
 
 ## Solutions
 
-```{r, include=FALSE}
-library(stringr)
-library(tm)
-library(ggplot2)
-```
+
 
 ### Solution 1
 
-```{r, title = "Solution"}
+
+
+~~~r
 str_extract_all(content(email), '\\$\\S+\\b') 
-```
+~~~
+{:title="Solution" .text-document}
+
+
+~~~
+[[1]]
+character(0)
+
+[[2]]
+character(0)
+
+[[3]]
+character(0)
+
+[[4]]
+character(0)
+~~~
+{:.output}
+
 
 ### Solution 2
 
-```{r, title = "Solution"}
+
+
+~~~r
 ggplot(words, aes(x = total)) +
        geom_histogram(binwidth = 1)
-```
+~~~
+{:title="Solution" .text-document}
+![ ]({% include asset.html path="images/exercise/unnamed-chunk-3-1.png" %})
+{:.captioned}
 
 The frequency of some words isn't very informative.  You can filter by term or by total number of occurrences. 
 
-```{r, title = "Solution"}
-words_trim <- filter(words, total < 250)
-         
-ggplot(words_trim, aes(x = total)) +
-       geom_histogram(binwidth = 1)
-```
 
-### Solution 3
 
-```{r, title = "Solution"}
-word_assoc <- findAssocs(dtm_trimmed, 'pipelin', 0.6)
 
-word_assoc <- data.frame(word = names(word_assoc[[1]]),
-                         assoc = word_assoc,
-                         row.names = NULL)
-```
 
-```{r, title = "Solution"}
-ggplot(word_assoc, aes(label = word, size = pipelin)) +
-       geom_text_wordcloud_area()
-```
+
 
