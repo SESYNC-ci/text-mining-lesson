@@ -55,7 +55,7 @@ enron <- tm_map(enron, function(email) {
 
 ===
 
-## Predefind Cleaning Functions
+## Predefined Cleaning Functions
 
 These are some of the functions listed by `getTransformations`.
 
