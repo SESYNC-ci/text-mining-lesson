@@ -4,10 +4,10 @@ handouts:
  - data/enron
  - data/README.md
 tag: v0.3
-instructor: Ian Carroll
+instructor: Rachael Blake
 authors:
- - Ian Carroll
-lesson: 10
+ - Ian Carroll, Rachael Blake
+lesson: 5
 sorter:
   - data
   - scraping
@@ -16,3 +16,4 @@ sorter:
 #  - content
   - topic
 #  - qual
+  - exercise
