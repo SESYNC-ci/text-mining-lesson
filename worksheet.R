@@ -2,15 +2,16 @@
 
 library(...)
 
-enron <- ...(DirSource("data/enron"))
+...(
+  'Email info@sesync.org or tweet @SESYNC for details!',
+  '...')
 
 library(...)
 
+enron <- ...(DirSource("data/enron"))
+email <- ...
+
 match <- str_match(..., '^From: (.*)')
-
-
-txt <- ...
-str_match(txt, '...')
 
 ## Data Extraction
 
@@ -44,6 +45,7 @@ edges <- ...(enron, FUN = function(email) {
   to <- get_to(email)
   return(cbind(from, to))
 })
+
 edges <- do.call(..., edges)
 edges <- na.omit(edges)
 attr(edges, 'na.action') <- NULL
@@ -53,7 +55,7 @@ library(...)
 g <- ...
 plot(...)
 
-## Text Mining
+## Cleaning Text
 
 enron <- ...(enron, function(email) {
   body <- content(email)
@@ -66,7 +68,6 @@ enron <- ...(enron, function(email) {
   return(email)
 })
 
-## Cleaning Text
 
 library(magrittr)
 
@@ -97,6 +98,7 @@ dtm <- DocumentTermMatrix(enron_words)
 
 library(tidytext)
 library(dplyr)
+
 dtt <- ...(dtm)
 words <- dtt %>%
   group_by(...) %>%
@@ -106,6 +108,7 @@ words <- dtt %>%
   mutate(nchar = nchar(term))
 
 library(ggplot2)
+
 ggplot(..., aes(...)) +
   geom_histogram(binwidth = 1)
 
@@ -123,10 +126,17 @@ dtm_trimmed <- dtt_trimmed %>%
 ## Term Correlations
 
 word_assoc <- ...(dtm_trimmed, ..., 0.6)
+
 word_assoc <- data.frame(
   word = names(word_assoc[[1]]),
   assoc = word_assoc,
   row.names = NULL)
+
+library(ggwordcloud)
+
+ggplot(data = ...,
+       aes(label = ..., size = ...)) +
+  geom_text_wordcloud_area()
 
 ## Latent Dirichlet allocation
 
@@ -142,7 +152,7 @@ library(ggwordcloud)
 topics <- ...(fit) %>%
   filter(beta > 0.004)
 
-ggplot(topics,
+ggplot(data = ...,
   aes(size = ..., label = ...)) +
   geom_text_wordcloud_area(rm_outside = TRUE) +
   facet_wrap(vars(topic))
