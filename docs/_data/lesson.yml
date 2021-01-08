@@ -5,6 +5,9 @@ handouts:
  - data/README.md
 tag: v0.4
 instructor: Rachael Blake
+lifecycle: stable # status for lifecycle badge
+badgecolor: green # color for lifecycle badge
+warning: false # whether to include note about lifecycle status
 authors:
  - Ian Carroll
  - Rachael Blake
