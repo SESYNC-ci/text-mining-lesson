@@ -11,7 +11,7 @@ warning: false # whether to include note about lifecycle status
 authors:
  - Ian Carroll
  - Rachael Blake
-lesson: 5
+lesson: 8
 sorter:
   - data
   - scraping
