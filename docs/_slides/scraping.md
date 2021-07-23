@@ -23,7 +23,7 @@ a document that has particular features defined as a "pattern".
 | \\$[0-9,]+   | The ransom of <span style="color:red;">$1,000,000</span> to Dr. Evil.                |
 | \b\S+@\S+\b  | E-mail <span style="color:red;">info@sesync.org</span> or tweet @SESYNC for details! |
 
-Specifying these patterns correctly can be tricky.  This is a useful site for testing out regex patterns [here](https://regex101.com/).  
+Specifying these patterns correctly can be tricky.  This is a useful site for testing out [regex patterns specific to R](https://spannbaueradam.shinyapps.io/r_regex_tester/).  
 
 ===
 
